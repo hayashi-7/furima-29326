@@ -19,16 +19,24 @@
 
 ## items テーブル
 
-| Column  |    Type    |  Options                        |
-| ------  | ---------- | ------------------------------- |
-|  image  |    text    | null: false                     |
-|  text   |    text    | null: false                     |
-| user_id | references | null: false , foreign_key: true |
-| price   | integer    | null: false                     |
+| Column        |    Type    |  Options                        |
+| ------------- | ---------- | ------------------------------- |
+|  image        |    text    | null: false                     |
+|  text         |    text    | null: false                     |
+| user_id       | integer    | null: false                     |
+| price         | integer    | null: false                     |
+| item_name     |    text    | null: false                     |
+| category_id   | integer    | null: false                     |
+| status        | string     | null: false                     |
+| shipping      |    text    | null: false                     |
+| prefecture_id | integer    | null: false                     |
+|  day          | string     | null: false                     |
+
 ### Association
 
 - belongs_to :user
 - has_many :comments
+- belongs_to_active_hash :category
 
 
 
@@ -37,8 +45,8 @@
 | Column   |  Type      | Options                        |
 | -------  | ---------- | ------------------------------ |
 |   text   |    text    |                                |
-|  user_id | references | null: false, foreign_key: true |
-|  item_id | references | null: false, foreign_key: true |
+|  user_id | integer    | null: false                    |
+|  item_id | integer    | null: false                    |
 
 ### Association
 
@@ -47,10 +55,10 @@
 
 # buysテーブル
 
-| Column  |    Type    |  Options                          |
-| ------  | ---------- | --------------------------------- |
-|  price  |  integer   | null: false                       |
-|  user   | references | null: false, foreign_key: true    |
+| Column     |    Type    |  Options                          |
+| ---------- | ---------- | --------------------------------- |
+|  item_id   |  integer   | null: false                       |
+|  user_id   |  integer   | null: false                       |
 
 ### Association
 
@@ -58,16 +66,17 @@
 
 # addressesテーブル
 
-| Column       |    Type    |  Options                       |
-| -------------| ---------- | ------------------------------ |
-| postal_code  |  string    | null: false                    |
-| prefecture   |  string    | null: false                    |
-|    city      |  string    | null: false                    |
-| house_number | integer    | null: false                    |
-|building_name |  string    |                                |
-| phone_number | integer    | null: false                    |
-| user         | reference  | null: false, foreign_key: true |
+| Column        |    Type    |  Options                       |
+| ------------- | ---------- | ------------------------------ |
+| postal_code   |  string    | null: false                    |
+|    city       |  string    | null: false                    |
+| house_number  | integer    | null: false                    |
+| building_name |  string    |                                |
+| phone_number  |   string   | null: false                    |
+| user_id       | integer    | null: false                    |
+| prefecture_id | integer    | null: false                    |
 
 ### Association
 
 - belongs_to :user
+- belongs_to_active_hash :prefecture
