@@ -18,7 +18,6 @@
 
 - has_many :items
 - has_many :comments
-- has_one :address
 - has_many :buys
 
 
@@ -26,7 +25,6 @@
 
 | Column        |    Type    |  Options                        |
 | ------------- | ---------- | ------------------------------- |
-|  image        |    text    | null: false                     |
 |  text         |    text    | null: false                     |
 | user_id       | integer    | null: false,  foreign_key: true |
 | price         | integer    | null: false                     |
