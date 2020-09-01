@@ -2,19 +2,26 @@
 
 ## users テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| name     | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
-| nickname | string | null: false |
+| Column                   | Type    | Options     |
+| ------------------------ | ------  | ----------- |
+| email                    | string  | null: false |
+| password                 | string  | null: false |
+| nickname                 | string  | null: false |
+| password-confirmation    | string  | null: false |
+| first_name               | string  | null: false |
+| second_name              | string  | null: false |
+| first_name_kana          | string  | null: false |
+| second_name_kana         | string  | null: false |
+| year                     | integer | null: false |
+| month                    | integer | null: false |
+| day                      | integer | null: false |
 
 ### Association
 
 - has_many :items
 - has_many :comments
 - has_one :address
-- has_one :buy
+- has_many :buys
 
 
 ## items テーブル
@@ -65,7 +72,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_many :addresses
+- has_one :address
 
 # addressesテーブル
 
@@ -76,11 +83,10 @@
 | house_number  | integer    | null: false                    |
 | building_name |  string    |                                |
 | phone_number  |   string   | null: false                    |
-| user_id       | integer    | null: false, foreign_key: true |
 | prefecture_id | integer    | null: false                    |
+| buy_id        | integer    | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user
 - belongs_to_active_hash :prefecture
 - belongs_to :buy
