@@ -5,9 +5,8 @@
 | Column                   | Type    | Options     |
 | ------------------------ | ------  | ----------- |
 | email                    | string  | null: false |
-| password                 | string  | null: false |
+| encrypted_password       | string  | null: false |
 | nickname                 | string  | null: false |
-| password-confirmation    | string  | null: false |
 | first_name               | string  | null: false |
 | second_name              | string  | null: false |
 | first_name_kana          | string  | null: false |
@@ -30,16 +29,15 @@
 | price         | integer    | null: false                     |
 |  name         |  string    | null: false                     |
 | category_id   | integer    | null: false                     |
-| status        | integer    | null: false                     |
-| shipping      | integer    | null: false                     |
+| status_id     | integer    | null: false                     |
+| shipping_id   | integer    | null: false                     |
 | prefecture_id | integer    | null: false                     |
-|  day          | integer    | null: false                     |
+|  day_id       | integer    | null: false                     |
 
 ### Association
 
 - belongs_to :user
 - has_many :comments
-- belongs_to_active_hash :category
 - has_one :buy
 
 
@@ -84,5 +82,5 @@
 
 ### Association
 
-- belongs_to_active_hash :prefecture
+
 - belongs_to :buy
