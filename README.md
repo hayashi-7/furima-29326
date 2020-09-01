@@ -23,20 +23,21 @@
 | ------------- | ---------- | ------------------------------- |
 |  image        |    text    | null: false                     |
 |  text         |    text    | null: false                     |
-| user_id       | integer    | null: false                     |
+| user_id       | integer    | null: false,  foreign_key: true |
 | price         | integer    | null: false                     |
-| item_name     |    text    | null: false                     |
+|  name         |    text    | null: false                     |
 | category_id   | integer    | null: false                     |
-| status        | string     | null: false                     |
-| shipping      |    text    | null: false                     |
+| status        | integer    | null: false                     |
+| shipping      | integer    | null: false                     |
 | prefecture_id | integer    | null: false                     |
-|  day          | string     | null: false                     |
+|  day          | integer    | null: false                     |
 
 ### Association
 
 - belongs_to :user
 - has_many :comments
 - belongs_to_active_hash :category
+- has_one :buy
 
 
 
@@ -45,8 +46,8 @@
 | Column   |  Type      | Options                        |
 | -------  | ---------- | ------------------------------ |
 |   text   |    text    |                                |
-|  user_id | integer    | null: false                    |
-|  item_id | integer    | null: false                    |
+|  user_id | integer    | null: false, foreign_key: true |
+|  item_id | integer    | null: false, foreign_key: true |
 
 ### Association
 
@@ -57,12 +58,14 @@
 
 | Column     |    Type    |  Options                          |
 | ---------- | ---------- | --------------------------------- |
-|  item_id   |  integer   | null: false                       |
-|  user_id   |  integer   | null: false                       |
+|  item_id   |  integer   | null: false,  foreign_key: true   |
+|  user_id   |  integer   | null: false,  foreign_key: true   |
 
 ### Association
 
 - belongs_to :user
+- belongs_to :item
+- has_many :addresses
 
 # addressesテーブル
 
@@ -73,10 +76,11 @@
 | house_number  | integer    | null: false                    |
 | building_name |  string    |                                |
 | phone_number  |   string   | null: false                    |
-| user_id       | integer    | null: false                    |
+| user_id       | integer    | null: false, foreign_key: true |
 | prefecture_id | integer    | null: false                    |
 
 ### Association
 
 - belongs_to :user
 - belongs_to_active_hash :prefecture
+- belongs_to :buy
