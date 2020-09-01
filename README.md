@@ -12,9 +12,7 @@
 | second_name              | string  | null: false |
 | first_name_kana          | string  | null: false |
 | second_name_kana         | string  | null: false |
-| year                     | integer | null: false |
-| month                    | integer | null: false |
-| day                      | integer | null: false |
+| birthday                 | date    | null: false |
 
 ### Association
 
@@ -32,7 +30,7 @@
 |  text         |    text    | null: false                     |
 | user_id       | integer    | null: false,  foreign_key: true |
 | price         | integer    | null: false                     |
-|  name         |    text    | null: false                     |
+|  name         |  string    | null: false                     |
 | category_id   | integer    | null: false                     |
 | status        | integer    | null: false                     |
 | shipping      | integer    | null: false                     |
@@ -80,7 +78,7 @@
 | ------------- | ---------- | ------------------------------ |
 | postal_code   |  string    | null: false                    |
 |    city       |  string    | null: false                    |
-| house_number  | integer    | null: false                    |
+| house_number  |  string    | null: false                    |
 | building_name |  string    |                                |
 | phone_number  |   string   | null: false                    |
 | prefecture_id | integer    | null: false                    |
