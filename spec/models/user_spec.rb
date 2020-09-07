@@ -48,6 +48,12 @@ RSpec.describe User, type: :model do
     expect(@user.errors.full_messages).to include("First name can't be blank")
     end
 
+    it "first_nameがカタカナ、漢字、平仮名以外だと登録できない" do
+      @user.first_name = 'ｱｱa'
+      @user.valid?
+    expect(@user.errors.full_messages).to include("First name is invalid")
+    end
+
     it "second_nameが空だと登録できない" do
       @user.second_name = ''
       @user.valid?
