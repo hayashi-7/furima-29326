@@ -24,7 +24,7 @@
 | Column        |    Type    |  Options                        |
 | ------------- | ---------- | ------------------------------- |
 |  text         |    text    | null: false                     |
-| user_id       | integer    | null: false,  foreign_key: true |
+| user_id       | references | null: false,  foreign_key: true |
 | price         | integer    | null: false                     |
 |  name         |  string    | null: false                     |
 | category_id   | integer    | null: false                     |
@@ -46,8 +46,8 @@
 | Column   |  Type      | Options                        |
 | -------  | ---------- | ------------------------------ |
 |   text   |    text    |                                |
-|  user_id | integer    | null: false, foreign_key: true |
-|  item_id | integer    | null: false, foreign_key: true |
+|  user_id | references  | null: false, foreign_key: true |
+|  item_id | references  | null: false, foreign_key: true |
 
 ### Association
 
@@ -58,8 +58,8 @@
 
 | Column     |    Type    |  Options                          |
 | ---------- | ---------- | --------------------------------- |
-|  item_id   |  integer   | null: false,  foreign_key: true   |
-|  user_id   |  integer   | null: false,  foreign_key: true   |
+|  item_id   |  references | null: false,  foreign_key: true   |
+|  user_id   |  references | null: false,  foreign_key: true   |
 
 ### Association
 
@@ -77,7 +77,7 @@
 | building_name |  string    |                                |
 | phone_number  |   string   | null: false                    |
 | prefecture_id | integer    | null: false                    |
-| buy_id        | integer    | null: false, foreign_key: true |
+| buy_id        | references  | null: false, foreign_key: true |
 
 ### Association
 
