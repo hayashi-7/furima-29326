@@ -18,10 +18,17 @@ class ItemsController < ApplicationController
    end
   end
 
-  def show; end
+  def show
+  end
 
-  def edit; end
-
+  def edit
+  end
+  
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to item_path
+  end
   private
 
   def item_params
