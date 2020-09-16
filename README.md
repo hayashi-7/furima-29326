@@ -56,8 +56,8 @@
 
 # buysテーブル
 
-| Column     |    Type    |  Options                          |
-| ---------- | ---------- | --------------------------------- |
+| Column     |    Type     |  Options                          |
+| ---------- | ----------  | --------------------------------- |
 |  item_id   |  references | null: false,  foreign_key: true   |
 |  user_id   |  references | null: false,  foreign_key: true   |
 
@@ -77,7 +77,7 @@
 | building_name |  string    |                                |
 | phone_number  |   string   | null: false                    |
 | prefecture_id | integer    | null: false                    |
-| buy_id        | references  | null: false, foreign_key: true |
+| buy_id        | references | null: false, foreign_key: true |
 
 ### Association
 

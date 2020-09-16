@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
+    if @item.save
       redirect_to root_path
     else
       render :new
@@ -19,15 +19,16 @@ class ItemsController < ApplicationController
 
   def destroy
     if user_signed_in? && current_user.id == @item.user_id
-      if @item.destroy
+       if @item.destroy
          redirect_to root_path
        else
          render :show
-     end
-   else
-     redirect_to new_user_session_path
-   end
-
+       end
+    else
+      redirect_to new_user_session_path
+    end
+  end
+  
   def show
   end
 
