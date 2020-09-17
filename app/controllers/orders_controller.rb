@@ -33,8 +33,6 @@ class OrdersController < ApplicationController
     )
   end
 
-
-  
   def order_out
     @item = Item.find(params[:item_id])
     if user_signed_in? && current_user.id == @item.user_id
